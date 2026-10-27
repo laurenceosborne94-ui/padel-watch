@@ -8,6 +8,6 @@ m = re.search(r"(\d+)\s*of\s*(\d+)\s*spots", html)
 
 if not m:
     requests.post(NTFY, data="Padel watcher: couldn't read spots - check the script")
-elif int(m.group(1)) > 0:
+elif int(m.group(1)) >=0:
     requests.post(NTFY, data=f"{m.group(1)} spot(s) open for Sunday Americano! Book now",
                   headers={"Priority": "urgent", "Click": URL})
